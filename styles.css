@@ -1597,6 +1597,106 @@ nav a.active::after {
     font-size: 24px;
 }
 
+/* About Section Icons */
+.stat-icon-about {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    transition: all 0.3s ease;
+}
+
+.about-item:hover .stat-icon-about {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Achievement Cards */
+.achievement-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.achievement-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Tech Detail Cards */
+.tech-detail-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.tech-detail-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Enhanced Tech Items */
+.tech-item:hover .w-12 {
+    transform: scale(1.15) rotate(10deg);
+}
+
+/* Reduced Animation Intensity */
+.price-ticker {
+    animation: float 12s ease-in-out infinite;
+}
+
+.trading-indicator {
+    animation: indicatorMove 20s linear infinite;
+}
+
+.candlestick {
+    animation: candlestickFloat 15s ease-in-out infinite;
+}
+
+/* Better spacing for mobile */
+@media (max-width: 768px) {
+    .about-item {
+        margin-bottom: 16px;
+    }
+    
+    .achievement-card {
+        margin-bottom: 16px;
+    }
+    
+    .tech-detail-card {
+        margin-bottom: 16px;
+    }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;

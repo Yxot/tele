@@ -81,103 +81,45 @@
         <!-- Background Grid -->
         <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
-        <!-- Trading Background Elements -->
+        <!-- Subtle Trading Background Elements -->
         <div class="absolute inset-0">
-            <!-- Candlestick Pattern Background -->
+            <!-- Simplified Candlestick Pattern -->
             <div class="candlestick-pattern">
-                <div class="candlestick green" style="top: 20%; left: 15%;">
+                <div class="candlestick green" style="top: 25%; left: 8%; opacity: 0.4;">
                     <div class="wick"></div>
                     <div class="body"></div>
                     <div class="wick"></div>
                 </div>
-                <div class="candlestick red" style="top: 30%; left: 25%;">
+                <div class="candlestick red" style="top: 45%; right: 12%; opacity: 0.4;">
                     <div class="wick"></div>
                     <div class="body"></div>
                     <div class="wick"></div>
                 </div>
-                <div class="candlestick green" style="top: 40%; left: 35%;">
-                    <div class="wick"></div>
-                    <div class="body"></div>
-                    <div class="wick"></div>
-                </div>
-                <div class="candlestick green" style="top: 25%; right: 20%;">
-                    <div class="wick"></div>
-                    <div class="body"></div>
-                    <div class="wick"></div>
-                </div>
-                <div class="candlestick red" style="top: 60%; left: 10%;">
-                    <div class="wick"></div>
-                    <div class="body"></div>
-                    <div class="wick"></div>
-                </div>
-                <div class="candlestick green" style="top: 70%; right: 15%;">
+                <div class="candlestick green" style="top: 65%; left: 15%; opacity: 0.4;">
                     <div class="wick"></div>
                     <div class="body"></div>
                     <div class="wick"></div>
                 </div>
             </div>
             
-            <!-- Trading Price Tickers -->
-            <div class="price-ticker price-ticker-1">
+            <!-- Subtle Price Tickers -->
+            <div class="price-ticker price-ticker-1" style="opacity: 0.7;">
                 <div class="ticker-item green">
                     <i class="fab fa-bitcoin"></i> BTC <span>+2.4%</span>
-                    <div class="price-line green"></div>
                 </div>
             </div>
-            <div class="price-ticker price-ticker-2">
+            <div class="price-ticker price-ticker-2" style="opacity: 0.7;">
                 <div class="ticker-item red">
                     <i class="fab fa-ethereum"></i> ETH <span>-1.2%</span>
-                    <div class="price-line red"></div>
-                </div>
-            </div>
-            <div class="price-ticker price-ticker-3">
-                <div class="ticker-item green">
-                    <i class="fas fa-coins"></i> SOL <span>+5.8%</span>
-                    <div class="price-line green"></div>
-                </div>
-            </div>
-            <div class="price-ticker price-ticker-4">
-                <div class="ticker-item green">
-                    <i class="fas fa-coins"></i> ADA <span>+3.1%</span>
-                    <div class="price-line green"></div>
                 </div>
             </div>
             
-            <!-- Moving Trading Indicators -->
-            <div class="trading-indicator indicator-1">
+            <!-- Minimal Trading Indicators -->
+            <div class="trading-indicator indicator-1" style="opacity: 0.5;">
                 <i class="fas fa-arrow-trend-up text-green-400"></i>
-                <div class="indicator-trail green"></div>
             </div>
-            <div class="trading-indicator indicator-2">
-                <i class="fas fa-arrow-trend-down text-red-400"></i>
-                <div class="indicator-trail red"></div>
-            </div>
-            <div class="trading-indicator indicator-3">
+            <div class="trading-indicator indicator-2" style="opacity: 0.5;">
                 <i class="fas fa-chart-line text-blue-400"></i>
-                <div class="indicator-trail blue"></div>
-            </div>
-            
-            <!-- Market Depth Visualization -->
-            <div class="market-depth" style="top: 15%; right: 5%;">
-                <div class="depth-side asks">
-                    <div class="depth-level" style="width: 60%;"></div>
-                    <div class="depth-level" style="width: 40%;"></div>
-                    <div class="depth-level" style="width: 80%;"></div>
-                </div>
-                <div class="depth-side bids">
-                    <div class="depth-level" style="width: 70%;"></div>
-                    <div class="depth-level" style="width: 90%;"></div>
-                    <div class="depth-level" style="width: 50%;"></div>
-                </div>
-            </div>
-            
-            <!-- Volume Bars -->
-            <div class="volume-bars" style="bottom: 20%; left: 5%;">
-                <div class="volume-bar" style="height: 30%;"></div>
-                <div class="volume-bar" style="height: 60%;"></div>
-                <div class="volume-bar" style="height: 45%;"></div>
-                <div class="volume-bar" style="height: 80%;"></div>
-                <div class="volume-bar" style="height: 25%;"></div>
             </div>
         </div>
         
@@ -778,30 +720,60 @@
                 </div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
                 <div class="community-content">
                     <div class="space-y-6">
                         <div class="community-feature">
-                            <i class="fas fa-users text-white text-xl mr-4"></i>
+                            <i class="fas fa-users text-green-400 text-xl mr-4"></i>
                             <div>
                                 <h4 class="font-semibold mb-1">Exclusive Community</h4>
                                 <p class="text-white/70">Join 15,000+ professional traders in our private channels</p>
+                                <div class="text-xs text-green-400 mt-1">VIP Access • Premium Support</div>
                             </div>
                         </div>
                         
                         <div class="community-feature">
-                            <i class="fas fa-bell text-white text-xl mr-4"></i>
+                            <i class="fas fa-bell text-blue-400 text-xl mr-4"></i>
                             <div>
                                 <h4 class="font-semibold mb-1">Instant Notifications</h4>
                                 <p class="text-white/70">Real-time signal alerts directly to your device</p>
+                                <div class="text-xs text-blue-400 mt-1">Mobile • Desktop • API</div>
                             </div>
                         </div>
                         
                         <div class="community-feature">
-                            <i class="fas fa-graduation-cap text-white text-xl mr-4"></i>
+                            <i class="fas fa-graduation-cap text-purple-400 text-xl mr-4"></i>
                             <div>
                                 <h4 class="font-semibold mb-1">Educational Content</h4>
                                 <p class="text-white/70">Weekly masterclasses and trading strategy sessions</p>
+                                <div class="text-xs text-purple-400 mt-1">Live Sessions • Recorded Content</div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-feature">
+                            <i class="fas fa-chart-line text-yellow-400 text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1">Market Analysis</h4>
+                                <p class="text-white/70">Daily market reports and technical analysis</p>
+                                <div class="text-xs text-yellow-400 mt-1">Daily Reports • Market Insights</div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-feature">
+                            <i class="fas fa-handshake text-indigo-400 text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1">Personal Mentoring</h4>
+                                <p class="text-white/70">One-on-one guidance from experienced traders</p>
+                                <div class="text-xs text-indigo-400 mt-1">VIP Members • Expert Traders</div>
+                            </div>
+                        </div>
+                        
+                        <div class="community-feature">
+                            <i class="fas fa-trophy text-orange-400 text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1">Trading Competitions</h4>
+                                <p class="text-white/70">Monthly contests with cash prizes and recognition</p>
+                                <div class="text-xs text-orange-400 mt-1">Monthly Events • Cash Prizes</div>
                             </div>
                         </div>
                     </div>
@@ -964,32 +936,73 @@
                 </div>
                 
                 <!-- Company Stats -->
-                <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                     <div class="about-item">
+                        <div class="stat-icon-about">
+                            <i class="fas fa-chart-line text-green-400"></i>
+                        </div>
                         <div class="text-3xl font-bold text-white mb-2">5+</div>
                         <div class="text-white/70">Years of Experience</div>
+                        <div class="text-xs text-white/50 mt-1">Since 2019</div>
                     </div>
                     <div class="about-item">
+                        <div class="stat-icon-about">
+                            <i class="fas fa-database text-blue-400"></i>
+                        </div>
                         <div class="text-3xl font-bold text-white mb-2">50M+</div>
                         <div class="text-white/70">Trades Analyzed</div>
+                        <div class="text-xs text-white/50 mt-1">AI-Powered Analysis</div>
                     </div>
                     <div class="about-item">
+                        <div class="stat-icon-about">
+                            <i class="fas fa-users text-purple-400"></i>
+                        </div>
                         <div class="text-3xl font-bold text-white mb-2">15K+</div>
                         <div class="text-white/70">Active Members</div>
+                        <div class="text-xs text-white/50 mt-1">Growing Daily</div>
                     </div>
                     <div class="about-item">
+                        <div class="stat-icon-about">
+                            <i class="fas fa-headset text-yellow-400"></i>
+                        </div>
                         <div class="text-3xl font-bold text-white mb-2">24/7</div>
                         <div class="text-white/70">Support Available</div>
+                        <div class="text-xs text-white/50 mt-1">Always Here</div>
+                    </div>
+                </div>
+                
+                <!-- Company Achievements -->
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy text-yellow-400"></i>
+                        </div>
+                        <h5 class="text-lg font-semibold mb-2">Industry Recognition</h5>
+                        <p class="text-white/70 text-sm">Awarded "Best Trading Signals Platform" by CryptoNews 2024</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-shield-alt text-green-400"></i>
+                        </div>
+                        <h5 class="text-lg font-semibold mb-2">Regulatory Compliance</h5>
+                        <p class="text-white/70 text-sm">Fully compliant with international trading regulations and standards</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-globe text-blue-400"></i>
+                        </div>
+                        <h5 class="text-lg font-semibold mb-2">Global Reach</h5>
+                        <p class="text-white/70 text-sm">Serving traders in 50+ countries across 6 continents</p>
                     </div>
                 </div>
                 
                 <!-- Technology Stack -->
                 <div class="bg-white/5 rounded-2xl p-8">
                     <h4 class="text-2xl font-bold text-center mb-8">Our Technology Stack</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                         <div class="tech-item">
-                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-brain text-xl text-white"></i>
+                            <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-brain text-xl text-green-400"></i>
                             </div>
                             <div class="text-center">
                                 <div class="font-semibold mb-1">AI/ML</div>
@@ -998,8 +1011,8 @@
                         </div>
                         
                         <div class="tech-item">
-                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-database text-xl text-white"></i>
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-database text-xl text-blue-400"></i>
                             </div>
                             <div class="text-center">
                                 <div class="font-semibold mb-1">Big Data</div>
@@ -1008,8 +1021,8 @@
                         </div>
                         
                         <div class="tech-item">
-                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-shield-alt text-xl text-white"></i>
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-shield-alt text-xl text-purple-400"></i>
                             </div>
                             <div class="text-center">
                                 <div class="font-semibold mb-1">Security</div>
@@ -1018,12 +1031,79 @@
                         </div>
                         
                         <div class="tech-item">
-                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-cloud text-xl text-white"></i>
+                            <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-cloud text-xl text-yellow-400"></i>
                             </div>
                             <div class="text-center">
                                 <div class="font-semibold mb-1">Cloud</div>
                                 <div class="text-xs text-white/60">99.9% Uptime</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-rocket text-xl text-red-400"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold mb-1">Speed</div>
+                                <div class="text-xs text-white/60">Ultra-Fast API</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-sync text-xl text-indigo-400"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold mb-1">Automation</div>
+                                <div class="text-xs text-white/60">Smart Trading</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technical Details -->
+                    <div class="mt-12 grid md:grid-cols-2 gap-8">
+                        <div class="tech-detail-card">
+                            <h5 class="font-bold mb-4 text-green-400">Performance Metrics</h5>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Signal Latency</span>
+                                    <span class="text-green-400">< 50ms</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">API Response Time</span>
+                                    <span class="text-green-400">< 100ms</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Data Accuracy</span>
+                                    <span class="text-green-400">99.95%</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">System Uptime</span>
+                                    <span class="text-green-400">99.9%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-detail-card">
+                            <h5 class="font-bold mb-4 text-blue-400">Infrastructure</h5>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Data Centers</span>
+                                    <span class="text-blue-400">12 Global</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Load Balancers</span>
+                                    <span class="text-blue-400">Auto-scaling</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Backup Systems</span>
+                                    <span class="text-blue-400">Triple Redundancy</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Security Layers</span>
+                                    <span class="text-blue-400">Military Grade</span>
+                                </div>
                             </div>
                         </div>
                     </div>
