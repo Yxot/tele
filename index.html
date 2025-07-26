@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Rose Future Signals - Premium Trading Intelligence</title>
+    <meta name="description" content="Elite trading signals and market intelligence from White Rose Future Signals. Join our exclusive community of professional traders.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-white font-inter overflow-x-hidden">
+    
+    <!-- Header/Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="white-rose-logo">
+                        <svg width="40" height="40" viewBox="0 0 40 40" class="fill-white">
+                            <path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/>
+                            <circle cx="20" cy="20" r="3" class="fill-black"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold tracking-tight">White Rose</h1>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#signals" class="text-white/80 hover:text-white transition-colors">Signals</a>
+                    <a href="#performance" class="text-white/80 hover:text-white transition-colors">Performance</a>
+                    <a href="#community" class="text-white/80 hover:text-white transition-colors">Community</a>
+                    <a href="#about" class="text-white/80 hover:text-white transition-colors">About</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <button class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-white/90 transition-all transform hover:scale-105">
+                    Join Now
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute inset-0">
+            <div class="floating-element" style="top: 20%; left: 10%;"></div>
+            <div class="floating-element" style="top: 60%; right: 15%;"></div>
+            <div class="floating-element" style="top: 80%; left: 20%;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="hero-content">
+                <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                    <span class="block">FUTURE</span>
+                    <span class="block text-white/20">SIGNALS</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Elite trading intelligence for the next generation of investors. 
+                    Precision signals, real-time analysis, guaranteed results.
+                </p>
+                
+                <!-- Stats Preview -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto">
+                    <div class="stat-item">
+                        <div class="text-3xl md:text-4xl font-bold counter" data-target="94">0</div>
+                        <div class="text-white/60 text-sm">Win Rate %</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="text-3xl md:text-4xl font-bold counter" data-target="15000">0</div>
+                        <div class="text-white/60 text-sm">Active Traders</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="text-3xl md:text-4xl font-bold counter" data-target="2847">0</div>
+                        <div class="text-white/60 text-sm">Signals Sent</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="text-3xl md:text-4xl font-bold">24/7</div>
+                        <div class="text-white/60 text-sm">Market Analysis</div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="cta-primary">
+                        <i class="fab fa-telegram mr-2"></i>
+                        Join Telegram Channel
+                    </button>
+                    <button class="cta-secondary">
+                        <i class="fab fa-discord mr-2"></i>
+                        Discord Community
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="signals" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl md:text-5xl font-bold mb-6">Premium Signal Intelligence</h3>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto">
+                    Our advanced algorithms analyze market patterns 24/7 to deliver the most accurate trading signals
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Real-Time Analysis</h4>
+                    <p class="text-white/70">Advanced AI-powered market analysis providing instant insights across all major trading pairs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-target text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Precision Signals</h4>
+                    <p class="text-white/70">Highly accurate entry and exit points with detailed risk management strategies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Risk Management</h4>
+                    <p class="text-white/70">Comprehensive risk assessment and portfolio protection strategies for every trade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Stats -->
+    <section id="performance" class="py-20 bg-white/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl md:text-5xl font-bold mb-6">Proven Performance</h3>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto">
+                    Track record that speaks for itself. Real results from real traders.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="performance-stat">
+                    <div class="stat-number counter" data-target="847">0</div>
+                    <div class="stat-label">Successful Trades This Month</div>
+                </div>
+                
+                <div class="performance-stat">
+                    <div class="stat-number">$<span class="counter" data-target="2400000">0</span></div>
+                    <div class="stat-label">Total Profits Generated</div>
+                </div>
+                
+                <div class="performance-stat">
+                    <div class="stat-number counter" data-target="94.7">0</div>
+                    <div class="stat-label">Average Win Rate %</div>
+                </div>
+                
+                <div class="performance-stat">
+                    <div class="stat-number counter" data-target="3.2">0</div>
+                    <div class="stat-label">Average R:R Ratio</div>
+                </div>
+            </div>
+            
+            <!-- Trading Chart Visualization -->
+            <div class="mt-16">
+                <div class="trading-chart">
+                    <div class="chart-header">
+                        <h4 class="text-xl font-semibold">Weekly Performance Overview</h4>
+                        <div class="text-green-400 text-sm">+23.7% This Week</div>
+                    </div>
+                    <div class="chart-container">
+                        <!-- Animated chart bars -->
+                        <div class="chart-bars">
+                            <div class="chart-bar" data-height="60"></div>
+                            <div class="chart-bar" data-height="75"></div>
+                            <div class="chart-bar" data-height="45"></div>
+                            <div class="chart-bar" data-height="90"></div>
+                            <div class="chart-bar" data-height="70"></div>
+                            <div class="chart-bar" data-height="85"></div>
+                            <div class="chart-bar" data-height="95"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl md:text-5xl font-bold mb-6">Join The Elite</h3>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto">
+                    Connect with professional traders, share insights, and grow your portfolio together
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="community-content">
+                    <div class="space-y-6">
+                        <div class="community-feature">
+                            <i class="fas fa-users text-white text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1">Exclusive Community</h4>
+                                <p class="text-white/70">Join 15,000+ professional traders in our private channels</p>
+                            </div>
+                        </div>
+                        
+                        <div class="community-feature">
+                            <i class="fas fa-bell text-white text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1">Instant Notifications</h4>
+                                <p class="text-white/70">Real-time signal alerts directly to your device</p>
+                            </div>
+                        </div>
+                        
+                        <div class="community-feature">
+                            <i class="fas fa-graduation-cap text-white text-xl mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold mb-1">Educational Content</h4>
+                                <p class="text-white/70">Weekly masterclasses and trading strategy sessions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="community-platforms">
+                    <div class="platform-card telegram">
+                        <div class="platform-icon">
+                            <i class="fab fa-telegram text-3xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Telegram VIP</h4>
+                        <p class="text-white/70 mb-4">Premium signals channel with 24/7 support</p>
+                        <div class="text-sm text-white/60 mb-4">12,847 members</div>
+                        <button class="platform-btn">Join Channel</button>
+                    </div>
+                    
+                    <div class="platform-card discord mt-6">
+                        <div class="platform-icon">
+                            <i class="fab fa-discord text-3xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Discord Elite</h4>
+                        <p class="text-white/70 mb-4">Interactive community with voice chats and Q&A</p>
+                        <div class="text-sm text-white/60 mb-4">8,235 members</div>
+                        <button class="platform-btn">Join Server</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white/5">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-4xl md:text-5xl font-bold mb-8">About White Rose</h3>
+                <p class="text-xl text-white/70 mb-8 leading-relaxed">
+                    Founded by a team of quantitative analysts and professional traders, White Rose Future Signals 
+                    combines cutting-edge technology with decades of market experience to deliver unparalleled 
+                    trading intelligence.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="about-item">
+                        <div class="text-3xl font-bold text-white mb-2">5+</div>
+                        <div class="text-white/70">Years of Experience</div>
+                    </div>
+                    <div class="about-item">
+                        <div class="text-3xl font-bold text-white mb-2">50M+</div>
+                        <div class="text-white/70">Trades Analyzed</div>
+                    </div>
+                    <div class="about-item">
+                        <div class="text-3xl font-bold text-white mb-2">15K+</div>
+                        <div class="text-white/70">Active Members</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="white-rose-logo">
+                        <svg width="30" height="30" viewBox="0 0 40 40" class="fill-white">
+                            <path d="M20 2L25 12H35L27 18L30 28L20 22L10 28L13 18L5 12H15L20 2Z"/>
+                            <circle cx="20" cy="20" r="3" class="fill-black"/>
+                        </svg>
+                    </div>
+                    <span class="font-semibold">White Rose Future Signals</span>
+                </div>
+                
+                <div class="text-white/60 text-sm">
+                    © 2024 White Rose Future Signals. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
