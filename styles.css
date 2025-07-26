@@ -668,6 +668,289 @@ nav a.active::after {
     100% { opacity: 1; transform: scaleX(1); }
 }
 
+/* Trading Color Scheme */
+:root {
+    --green-trading: #00C853;
+    --red-trading: #FF1744;
+    --blue-trading: #2196F3;
+    --yellow-trading: #FFD600;
+    --green-glow: rgba(0, 200, 83, 0.3);
+    --red-glow: rgba(255, 23, 68, 0.3);
+}
+
+/* Price Tickers */
+.price-ticker {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 5;
+    animation: float 8s ease-in-out infinite;
+}
+
+.price-ticker-1 {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.price-ticker-2 {
+    top: 25%;
+    right: 10%;
+    animation-delay: -2s;
+}
+
+.price-ticker-3 {
+    top: 70%;
+    left: 15%;
+    animation-delay: -4s;
+}
+
+.price-ticker-4 {
+    top: 85%;
+    right: 20%;
+    animation-delay: -6s;
+}
+
+.ticker-item {
+    padding: 8px 12px;
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.ticker-item.green {
+    background: rgba(0, 200, 83, 0.1);
+    border-color: rgba(0, 200, 83, 0.3);
+    color: var(--green-trading);
+    box-shadow: 0 0 20px var(--green-glow);
+}
+
+.ticker-item.red {
+    background: rgba(255, 23, 68, 0.1);
+    border-color: rgba(255, 23, 68, 0.3);
+    color: var(--red-trading);
+    box-shadow: 0 0 20px var(--red-glow);
+}
+
+/* Trading Indicators */
+.trading-indicator {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: indicatorMove 12s linear infinite;
+}
+
+.indicator-1 {
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.indicator-2 {
+    top: 50%;
+    right: 25%;
+    animation-delay: -4s;
+}
+
+.indicator-3 {
+    top: 75%;
+    left: 30%;
+    animation-delay: -8s;
+}
+
+@keyframes indicatorMove {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(50px, -30px) rotate(90deg); }
+    50% { transform: translate(0, -60px) rotate(180deg); }
+    75% { transform: translate(-50px, -30px) rotate(270deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Live Market Feed */
+.live-market-feed {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.market-ticker {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-scroll {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+}
+
+.ticker-pair {
+    display: inline-block;
+    margin-right: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.ticker-pair.green {
+    color: var(--green-trading);
+    background: rgba(0, 200, 83, 0.1);
+}
+
+.ticker-pair.red {
+    color: var(--red-trading);
+    background: rgba(255, 23, 68, 0.1);
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Trading Pair Cards Enhanced */
+.trading-pair-card[data-trend="up"] {
+    border-color: rgba(0, 200, 83, 0.3);
+    background: linear-gradient(135deg, rgba(0, 200, 83, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.trading-pair-card[data-trend="down"] {
+    border-color: rgba(255, 23, 68, 0.3);
+    background: linear-gradient(135deg, rgba(255, 23, 68, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.trend-indicator {
+    animation: bounce 2s infinite;
+}
+
+.trend-indicator i {
+    font-size: 12px;
+}
+
+/* Flash Animations for Price Changes */
+.flash-green {
+    animation: flashGreen 2s ease-in-out infinite;
+}
+
+.flash-red {
+    animation: flashRed 2s ease-in-out infinite;
+}
+
+@keyframes flashGreen {
+    0%, 100% { 
+        color: var(--green-trading);
+        text-shadow: 0 0 5px var(--green-glow);
+    }
+    50% { 
+        color: #4CAF50;
+        text-shadow: 0 0 10px var(--green-glow);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes flashRed {
+    0%, 100% { 
+        color: var(--red-trading);
+        text-shadow: 0 0 5px var(--red-glow);
+    }
+    50% { 
+        color: #F44336;
+        text-shadow: 0 0 10px var(--red-glow);
+        transform: scale(1.05);
+    }
+}
+
+/* Chart Bars with Trading Colors */
+.chart-bar {
+    background: linear-gradient(to top, var(--green-trading) 0%, rgba(0, 200, 83, 0.3) 100%);
+}
+
+.chart-bar:nth-child(3) {
+    background: linear-gradient(to top, var(--red-trading) 0%, rgba(255, 23, 68, 0.3) 100%);
+}
+
+.chart-bar::after {
+    background: linear-gradient(to top, rgba(0, 200, 83, 0.2) 0%, rgba(0, 200, 83, 0.6) 100%);
+}
+
+.chart-bar:nth-child(3)::after {
+    background: linear-gradient(to top, rgba(255, 23, 68, 0.2) 0%, rgba(255, 23, 68, 0.6) 100%);
+}
+
+/* Signal Items with Colors */
+.signal-item:has(.bg-green-400) {
+    border-left: 3px solid var(--green-trading);
+    background: linear-gradient(90deg, rgba(0, 200, 83, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+.signal-item:has(.bg-red-400) {
+    border-left: 3px solid var(--red-trading);
+    background: linear-gradient(90deg, rgba(255, 23, 68, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+/* Glowing Effect for Stats */
+.stat-number {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.performance-stat:nth-child(1) .stat-number {
+    color: var(--green-trading);
+    text-shadow: 0 0 15px var(--green-glow);
+}
+
+.performance-stat:nth-child(2) .stat-number {
+    color: var(--green-trading);
+    text-shadow: 0 0 15px var(--green-glow);
+}
+
+.performance-stat:nth-child(3) .stat-number {
+    color: var(--green-trading);
+    text-shadow: 0 0 15px var(--green-glow);
+}
+
+.performance-stat:nth-child(4) .stat-number {
+    color: var(--blue-trading);
+    text-shadow: 0 0 15px rgba(33, 150, 243, 0.3);
+}
+
+/* Pulsing Elements */
+.animate-pulse-green {
+    animation: pulseGreen 2s infinite;
+}
+
+.animate-pulse-red {
+    animation: pulseRed 2s infinite;
+}
+
+@keyframes pulseGreen {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 var(--green-glow);
+    }
+    50% { 
+        box-shadow: 0 0 20px 10px transparent;
+    }
+}
+
+@keyframes pulseRed {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 var(--red-glow);
+    }
+    50% { 
+        box-shadow: 0 0 20px 10px transparent;
+    }
+}
+
 /* Mobile Navigation */
 .mobile-menu-btn {
     padding: 10px;

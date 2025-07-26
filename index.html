@@ -86,6 +86,31 @@
             <div class="floating-element" style="top: 20%; left: 10%;"></div>
             <div class="floating-element" style="top: 60%; right: 15%;"></div>
             <div class="floating-element" style="top: 80%; left: 20%;"></div>
+            
+            <!-- Trading Price Tickers -->
+            <div class="price-ticker price-ticker-1">
+                <div class="ticker-item green">BTC <span>+2.4%</span></div>
+            </div>
+            <div class="price-ticker price-ticker-2">
+                <div class="ticker-item red">ETH <span>-1.2%</span></div>
+            </div>
+            <div class="price-ticker price-ticker-3">
+                <div class="ticker-item green">SOL <span>+5.8%</span></div>
+            </div>
+            <div class="price-ticker price-ticker-4">
+                <div class="ticker-item green">ADA <span>+3.1%</span></div>
+            </div>
+            
+            <!-- Moving Trading Indicators -->
+            <div class="trading-indicator indicator-1">
+                <i class="fas fa-arrow-up text-green-400"></i>
+            </div>
+            <div class="trading-indicator indicator-2">
+                <i class="fas fa-arrow-down text-red-400"></i>
+            </div>
+            <div class="trading-indicator indicator-3">
+                <i class="fas fa-chart-line text-blue-400"></i>
+            </div>
         </div>
         
         <div class="container mx-auto px-6 text-center relative z-10">
@@ -119,6 +144,20 @@
                     </div>
                 </div>
                 
+                <!-- Live Market Feed -->
+                <div class="live-market-feed mb-8">
+                    <div class="market-ticker">
+                        <div class="ticker-scroll">
+                            <span class="ticker-pair green">BTC/USDT: $45,230 (+2.4%)</span>
+                            <span class="ticker-pair red">ETH/USDT: $2,340 (-1.2%)</span>
+                            <span class="ticker-pair green">BNB/USDT: $315 (+0.8%)</span>
+                            <span class="ticker-pair green">SOL/USDT: $98.50 (+5.8%)</span>
+                            <span class="ticker-pair red">ADA/USDT: $0.485 (-0.3%)</span>
+                            <span class="ticker-pair green">DOT/USDT: $6.25 (+3.1%)</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <button class="cta-primary">
@@ -193,6 +232,17 @@
                         </div>
                         <div class="text-xs text-green-400 mt-1">+5.2% Profit</div>
                     </div>
+                    
+                    <!-- Live Signal Alerts -->
+                    <div class="mt-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                            <span class="text-xs text-green-400 font-semibold">LIVE SIGNAL</span>
+                        </div>
+                        <div class="text-xs text-white/80">
+                            New opportunity detected for BTC/USDT
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
@@ -220,35 +270,71 @@
             <div class="bg-white/5 rounded-2xl p-8">
                 <h4 class="text-2xl font-bold mb-6 text-center">Supported Trading Pairs</h4>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    <div class="trading-pair-card">
-                        <div class="text-lg font-bold">BTC</div>
-                        <div class="text-sm text-white/60">Bitcoin</div>
-                        <div class="text-green-400 text-sm">+2.4%</div>
+                    <div class="trading-pair-card" data-trend="up">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="text-lg font-bold">BTC</div>
+                            <div class="trend-indicator">
+                                <i class="fas fa-arrow-up text-green-400"></i>
+                            </div>
+                        </div>
+                        <div class="text-sm text-white/60 mb-1">Bitcoin</div>
+                        <div class="text-xs text-white/50 mb-1">$45,230</div>
+                        <div class="text-green-400 text-sm font-semibold flash-green">+2.4%</div>
                     </div>
-                    <div class="trading-pair-card">
-                        <div class="text-lg font-bold">ETH</div>
-                        <div class="text-sm text-white/60">Ethereum</div>
-                        <div class="text-green-400 text-sm">+1.8%</div>
+                    <div class="trading-pair-card" data-trend="up">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="text-lg font-bold">ETH</div>
+                            <div class="trend-indicator">
+                                <i class="fas fa-arrow-up text-green-400"></i>
+                            </div>
+                        </div>
+                        <div class="text-sm text-white/60 mb-1">Ethereum</div>
+                        <div class="text-xs text-white/50 mb-1">$2,340</div>
+                        <div class="text-green-400 text-sm font-semibold flash-green">+1.8%</div>
                     </div>
-                    <div class="trading-pair-card">
-                        <div class="text-lg font-bold">BNB</div>
-                        <div class="text-sm text-white/60">Binance</div>
-                        <div class="text-red-400 text-sm">-0.5%</div>
+                    <div class="trading-pair-card" data-trend="down">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="text-lg font-bold">BNB</div>
+                            <div class="trend-indicator">
+                                <i class="fas fa-arrow-down text-red-400"></i>
+                            </div>
+                        </div>
+                        <div class="text-sm text-white/60 mb-1">Binance</div>
+                        <div class="text-xs text-white/50 mb-1">$315</div>
+                        <div class="text-red-400 text-sm font-semibold flash-red">-0.5%</div>
                     </div>
-                    <div class="trading-pair-card">
-                        <div class="text-lg font-bold">ADA</div>
-                        <div class="text-sm text-white/60">Cardano</div>
-                        <div class="text-green-400 text-sm">+3.2%</div>
+                    <div class="trading-pair-card" data-trend="up">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="text-lg font-bold">ADA</div>
+                            <div class="trend-indicator">
+                                <i class="fas fa-arrow-up text-green-400"></i>
+                            </div>
+                        </div>
+                        <div class="text-sm text-white/60 mb-1">Cardano</div>
+                        <div class="text-xs text-white/50 mb-1">$0.485</div>
+                        <div class="text-green-400 text-sm font-semibold flash-green">+3.2%</div>
                     </div>
-                    <div class="trading-pair-card">
-                        <div class="text-lg font-bold">SOL</div>
-                        <div class="text-sm text-white/60">Solana</div>
-                        <div class="text-green-400 text-sm">+5.1%</div>
+                    <div class="trading-pair-card" data-trend="up">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="text-lg font-bold">SOL</div>
+                            <div class="trend-indicator">
+                                <i class="fas fa-arrow-up text-green-400"></i>
+                            </div>
+                        </div>
+                        <div class="text-sm text-white/60 mb-1">Solana</div>
+                        <div class="text-xs text-white/50 mb-1">$98.50</div>
+                        <div class="text-green-400 text-sm font-semibold flash-green">+5.1%</div>
                     </div>
-                    <div class="trading-pair-card">
-                        <div class="text-lg font-bold">DOT</div>
-                        <div class="text-sm text-white/60">Polkadot</div>
-                        <div class="text-green-400 text-sm">+1.2%</div>
+                    <div class="trading-pair-card" data-trend="up">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="text-lg font-bold">DOT</div>
+                            <div class="trend-indicator">
+                                <i class="fas fa-arrow-up text-green-400"></i>
+                            </div>
+                        </div>
+                        <div class="text-sm text-white/60 mb-1">Polkadot</div>
+                        <div class="text-xs text-white/50 mb-1">$6.25</div>
+                        <div class="text-green-400 text-sm font-semibold flash-green">+1.2%</div>
                     </div>
                 </div>
             </div>

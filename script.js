@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollSpy();
     initNavigationEffects();
     initInteractiveElements();
+    initMobileMenu();
+    initTradingAnimations();
     
 });
 
@@ -613,10 +615,186 @@ if (window.innerWidth > 1024) {
     initCustomCursor();
 }
 
+// Mobile Menu Functionality
+function initMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            
+            // Animate menu items
+            if (mobileNav.classList.contains('active')) {
+                gsap.from('.mobile-nav-link', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                });
+            }
+        });
+        
+        // Close menu when link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Trading Animations
+function initTradingAnimations() {
+    // Animate price tickers
+    gsap.to('.price-ticker', {
+        y: -10,
+        duration: 3,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.5
+    });
+    
+    // Animate trading indicators
+    gsap.to('.trading-indicator', {
+        scale: 1.1,
+        duration: 2,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.3
+    });
+    
+    // Flash price changes periodically
+    setInterval(() => {
+        const greenElements = document.querySelectorAll('.flash-green');
+        const redElements = document.querySelectorAll('.flash-red');
+        
+        greenElements.forEach(el => {
+            gsap.to(el, {
+                scale: 1.05,
+                duration: 0.3,
+                yoyo: true,
+                repeat: 1,
+                ease: 'power2.inOut'
+            });
+        });
+        
+        redElements.forEach(el => {
+            gsap.to(el, {
+                scale: 1.05,
+                duration: 0.3,
+                yoyo: true,
+                repeat: 1,
+                ease: 'power2.inOut'
+            });
+        });
+    }, 3000);
+    
+    // Simulate live price updates
+    setInterval(() => {
+        updateTradingPrices();
+    }, 5000);
+}
+
+// Simulate live price updates
+function updateTradingPrices() {
+    const priceElements = document.querySelectorAll('.trading-pair-card');
+    
+    priceElements.forEach(card => {
+        const changeElement = card.querySelector('.flash-green, .flash-red');
+        if (changeElement) {
+            // Random price change
+            const isPositive = Math.random() > 0.3; // 70% chance of positive
+            const change = (Math.random() * 5).toFixed(1);
+            
+            if (isPositive) {
+                changeElement.textContent = `+${change}%`;
+                changeElement.className = changeElement.className.replace('flash-red', 'flash-green');
+                changeElement.className = changeElement.className.replace('text-red-400', 'text-green-400');
+                
+                // Update card styling
+                card.setAttribute('data-trend', 'up');
+                const arrow = card.querySelector('.trend-indicator i');
+                if (arrow) {
+                    arrow.className = 'fas fa-arrow-up text-green-400';
+                }
+            } else {
+                changeElement.textContent = `-${change}%`;
+                changeElement.className = changeElement.className.replace('flash-green', 'flash-red');
+                changeElement.className = changeElement.className.replace('text-green-400', 'text-red-400');
+                
+                // Update card styling
+                card.setAttribute('data-trend', 'down');
+                const arrow = card.querySelector('.trend-indicator i');
+                if (arrow) {
+                    arrow.className = 'fas fa-arrow-down text-red-400';
+                }
+            }
+            
+            // Flash animation
+            gsap.fromTo(changeElement, 
+                { scale: 1, boxShadow: '0 0 0px rgba(255,255,255,0)' },
+                { 
+                    scale: 1.1, 
+                    boxShadow: isPositive ? '0 0 20px rgba(0,200,83,0.5)' : '0 0 20px rgba(255,23,68,0.5)',
+                    duration: 0.5,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: 'power2.inOut'
+                }
+            );
+        }
+    });
+}
+
+// Add trading sound effects (optional)
+function playTradingSound(type) {
+    // Create audio context for trading sounds
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    if (type === 'profit') {
+        // Create a simple profit sound
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.1);
+        
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.1);
+    }
+}
+
 // Keyboard navigation
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        // Close any modals or overlays
+        // Close mobile menu if open
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (mobileNav && mobileNav.classList.contains('active')) {
+            mobileMenuBtn.classList.remove('active');
+            mobileNav.classList.remove('active');
+        }
     }
     
     if (e.key === 'ArrowDown' || e.key === ' ') {
