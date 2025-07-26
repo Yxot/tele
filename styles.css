@@ -1123,6 +1123,480 @@ nav a.active::after {
     opacity: 1;
 }
 
+/* Candlestick Patterns */
+.candlestick-pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.candlestick {
+    position: absolute;
+    width: 4px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: candlestickFloat 8s ease-in-out infinite;
+}
+
+.candlestick.green .wick {
+    background: var(--green-trading);
+    width: 1px;
+    height: 8px;
+}
+
+.candlestick.green .body {
+    background: var(--green-trading);
+    width: 4px;
+    height: 24px;
+    border-radius: 1px;
+}
+
+.candlestick.red .wick {
+    background: var(--red-trading);
+    width: 1px;
+    height: 8px;
+}
+
+.candlestick.red .body {
+    background: var(--red-trading);
+    width: 4px;
+    height: 24px;
+    border-radius: 1px;
+}
+
+@keyframes candlestickFloat {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+    50% { transform: translateY(-15px) scale(1.1); opacity: 1; }
+}
+
+/* Price Lines */
+.price-line {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    animation: priceLine 3s ease-in-out infinite;
+}
+
+.price-line.green {
+    background: linear-gradient(90deg, transparent, var(--green-trading), transparent);
+}
+
+.price-line.red {
+    background: linear-gradient(90deg, transparent, var(--red-trading), transparent);
+}
+
+@keyframes priceLine {
+    0%, 100% { transform: scaleX(0.5); opacity: 0.5; }
+    50% { transform: scaleX(1); opacity: 1; }
+}
+
+/* Indicator Trails */
+.indicator-trail {
+    position: absolute;
+    width: 60px;
+    height: 2px;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    animation: trailMove 2s ease-in-out infinite;
+}
+
+.indicator-trail.green {
+    background: linear-gradient(90deg, var(--green-trading), transparent);
+}
+
+.indicator-trail.red {
+    background: linear-gradient(90deg, var(--red-trading), transparent);
+}
+
+.indicator-trail.blue {
+    background: linear-gradient(90deg, var(--blue-trading), transparent);
+}
+
+@keyframes trailMove {
+    0% { transform: translateY(-50%) scaleX(0); }
+    50% { transform: translateY(-50%) scaleX(1); }
+    100% { transform: translateY(-50%) scaleX(0); }
+}
+
+/* Market Depth */
+.market-depth {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.depth-side {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    height: 50%;
+}
+
+.depth-side.asks {
+    margin-bottom: 2px;
+}
+
+.depth-level {
+    height: 4px;
+    border-radius: 1px;
+    animation: depthPulse 2s ease-in-out infinite;
+}
+
+.depth-side.asks .depth-level {
+    background: var(--red-trading);
+    margin-left: auto;
+}
+
+.depth-side.bids .depth-level {
+    background: var(--green-trading);
+}
+
+@keyframes depthPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Volume Bars */
+.volume-bars {
+    position: absolute;
+    display: flex;
+    align-items: end;
+    gap: 2px;
+    height: 40px;
+    width: 40px;
+}
+
+.volume-bar {
+    width: 6px;
+    background: linear-gradient(to top, var(--blue-trading), rgba(33, 150, 243, 0.3));
+    border-radius: 1px 1px 0 0;
+    animation: volumePulse 3s ease-in-out infinite;
+}
+
+.volume-bar:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+@keyframes volumePulse {
+    0%, 100% { transform: scaleY(0.8); opacity: 0.6; }
+    50% { transform: scaleY(1.2); opacity: 1; }
+}
+
+/* Strategy Cards */
+.strategy-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.strategy-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.strategy-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.strategy-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.strategy-card:hover .strategy-icon {
+    transform: scale(1.1) rotate(10deg);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.success-rate {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.success-rate.green {
+    background: rgba(0, 200, 83, 0.2);
+    color: var(--green-trading);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+}
+
+.strategy-chart {
+    height: 80px;
+    margin: 16px 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mini-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.strategy-stats {
+    space: 8px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+/* Analytics Cards */
+.analytics-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.analytics-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.status-indicator {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-indicator.green {
+    background: rgba(0, 200, 83, 0.2);
+    color: var(--green-trading);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+}
+
+.status-indicator.blue {
+    background: rgba(33, 150, 243, 0.2);
+    color: var(--blue-trading);
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+/* Risk Gauge */
+.risk-gauge {
+    margin: 20px 0;
+}
+
+.gauge-container {
+    position: relative;
+    width: 120px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.gauge-fill {
+    width: 120px;
+    height: 60px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    border-radius: 120px 120px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.gauge-fill::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--green-trading), var(--yellow-trading));
+    transform-origin: right bottom;
+}
+
+.gauge-center {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.gauge-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--green-trading);
+}
+
+.gauge-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.risk-breakdown {
+    space: 12px;
+}
+
+.risk-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+/* Allocation Chart */
+.allocation-chart {
+    space: 12px;
+}
+
+.allocation-item {
+    margin-bottom: 12px;
+}
+
+.allocation-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 2s ease-out;
+}
+
+.allocation-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* Sentiment Meter */
+.sentiment-meter {
+    margin: 20px 0;
+}
+
+.sentiment-scale {
+    position: relative;
+    height: 8px;
+    background: linear-gradient(90deg, var(--red-trading), var(--yellow-trading), var(--green-trading));
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.scale-marker {
+    position: absolute;
+    top: -4px;
+    width: 2px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 1px;
+}
+
+.sentiment-needle {
+    position: absolute;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 12px solid #fff;
+    transform: translateX(-50%);
+    animation: needleGlow 2s ease-in-out infinite;
+}
+
+@keyframes needleGlow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); }
+    50% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); }
+}
+
+.sentiment-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.sentiment-data {
+    space: 12px;
+    margin-top: 16px;
+}
+
+.sentiment-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+/* Community Stats */
+.community-stat {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.community-stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.stat-icon {
+    margin-bottom: 12px;
+}
+
+.stat-icon i {
+    font-size: 24px;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;

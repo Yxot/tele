@@ -81,35 +81,103 @@
         <!-- Background Grid -->
         <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
-        <!-- Floating Elements -->
+        <!-- Trading Background Elements -->
         <div class="absolute inset-0">
-            <div class="floating-element" style="top: 20%; left: 10%;"></div>
-            <div class="floating-element" style="top: 60%; right: 15%;"></div>
-            <div class="floating-element" style="top: 80%; left: 20%;"></div>
+            <!-- Candlestick Pattern Background -->
+            <div class="candlestick-pattern">
+                <div class="candlestick green" style="top: 20%; left: 15%;">
+                    <div class="wick"></div>
+                    <div class="body"></div>
+                    <div class="wick"></div>
+                </div>
+                <div class="candlestick red" style="top: 30%; left: 25%;">
+                    <div class="wick"></div>
+                    <div class="body"></div>
+                    <div class="wick"></div>
+                </div>
+                <div class="candlestick green" style="top: 40%; left: 35%;">
+                    <div class="wick"></div>
+                    <div class="body"></div>
+                    <div class="wick"></div>
+                </div>
+                <div class="candlestick green" style="top: 25%; right: 20%;">
+                    <div class="wick"></div>
+                    <div class="body"></div>
+                    <div class="wick"></div>
+                </div>
+                <div class="candlestick red" style="top: 60%; left: 10%;">
+                    <div class="wick"></div>
+                    <div class="body"></div>
+                    <div class="wick"></div>
+                </div>
+                <div class="candlestick green" style="top: 70%; right: 15%;">
+                    <div class="wick"></div>
+                    <div class="body"></div>
+                    <div class="wick"></div>
+                </div>
+            </div>
             
             <!-- Trading Price Tickers -->
             <div class="price-ticker price-ticker-1">
-                <div class="ticker-item green">BTC <span>+2.4%</span></div>
+                <div class="ticker-item green">
+                    <i class="fab fa-bitcoin"></i> BTC <span>+2.4%</span>
+                    <div class="price-line green"></div>
+                </div>
             </div>
             <div class="price-ticker price-ticker-2">
-                <div class="ticker-item red">ETH <span>-1.2%</span></div>
+                <div class="ticker-item red">
+                    <i class="fab fa-ethereum"></i> ETH <span>-1.2%</span>
+                    <div class="price-line red"></div>
+                </div>
             </div>
             <div class="price-ticker price-ticker-3">
-                <div class="ticker-item green">SOL <span>+5.8%</span></div>
+                <div class="ticker-item green">
+                    <i class="fas fa-coins"></i> SOL <span>+5.8%</span>
+                    <div class="price-line green"></div>
+                </div>
             </div>
             <div class="price-ticker price-ticker-4">
-                <div class="ticker-item green">ADA <span>+3.1%</span></div>
+                <div class="ticker-item green">
+                    <i class="fas fa-coins"></i> ADA <span>+3.1%</span>
+                    <div class="price-line green"></div>
+                </div>
             </div>
             
             <!-- Moving Trading Indicators -->
             <div class="trading-indicator indicator-1">
-                <i class="fas fa-arrow-up text-green-400"></i>
+                <i class="fas fa-arrow-trend-up text-green-400"></i>
+                <div class="indicator-trail green"></div>
             </div>
             <div class="trading-indicator indicator-2">
-                <i class="fas fa-arrow-down text-red-400"></i>
+                <i class="fas fa-arrow-trend-down text-red-400"></i>
+                <div class="indicator-trail red"></div>
             </div>
             <div class="trading-indicator indicator-3">
                 <i class="fas fa-chart-line text-blue-400"></i>
+                <div class="indicator-trail blue"></div>
+            </div>
+            
+            <!-- Market Depth Visualization -->
+            <div class="market-depth" style="top: 15%; right: 5%;">
+                <div class="depth-side asks">
+                    <div class="depth-level" style="width: 60%;"></div>
+                    <div class="depth-level" style="width: 40%;"></div>
+                    <div class="depth-level" style="width: 80%;"></div>
+                </div>
+                <div class="depth-side bids">
+                    <div class="depth-level" style="width: 70%;"></div>
+                    <div class="depth-level" style="width: 90%;"></div>
+                    <div class="depth-level" style="width: 50%;"></div>
+                </div>
+            </div>
+            
+            <!-- Volume Bars -->
+            <div class="volume-bars" style="bottom: 20%; left: 5%;">
+                <div class="volume-bar" style="height: 30%;"></div>
+                <div class="volume-bar" style="height: 60%;"></div>
+                <div class="volume-bar" style="height: 45%;"></div>
+                <div class="volume-bar" style="height: 80%;"></div>
+                <div class="volume-bar" style="height: 25%;"></div>
             </div>
         </div>
         
@@ -266,9 +334,96 @@
                 </div>
             </div>
 
+            <!-- Trading Strategies Section -->
+            <div class="bg-white/5 rounded-2xl p-8 mb-16">
+                <h4 class="text-2xl font-bold mb-6 text-center">Our Trading Strategies</h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <div class="strategy-icon">
+                                <i class="fas fa-bolt text-yellow-400"></i>
+                            </div>
+                            <h5 class="font-bold">Scalping</h5>
+                            <div class="success-rate green">94% Success</div>
+                        </div>
+                        <div class="strategy-chart">
+                            <canvas class="mini-chart" data-type="scalping"></canvas>
+                        </div>
+                        <div class="strategy-stats">
+                            <div class="stat-row">
+                                <span>Timeframe:</span>
+                                <span class="text-blue-400">1-5 minutes</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Avg Profit:</span>
+                                <span class="text-green-400">+0.8%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Daily Signals:</span>
+                                <span class="text-white">15-25</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <div class="strategy-icon">
+                                <i class="fas fa-chart-area text-green-400"></i>
+                            </div>
+                            <h5 class="font-bold">Swing Trading</h5>
+                            <div class="success-rate green">87% Success</div>
+                        </div>
+                        <div class="strategy-chart">
+                            <canvas class="mini-chart" data-type="swing"></canvas>
+                        </div>
+                        <div class="strategy-stats">
+                            <div class="stat-row">
+                                <span>Timeframe:</span>
+                                <span class="text-blue-400">1-7 days</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Avg Profit:</span>
+                                <span class="text-green-400">+5.2%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Daily Signals:</span>
+                                <span class="text-white">3-8</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <div class="strategy-header">
+                            <div class="strategy-icon">
+                                <i class="fas fa-mountain text-purple-400"></i>
+                            </div>
+                            <h5 class="font-bold">Position Trading</h5>
+                            <div class="success-rate green">91% Success</div>
+                        </div>
+                        <div class="strategy-chart">
+                            <canvas class="mini-chart" data-type="position"></canvas>
+                        </div>
+                        <div class="strategy-stats">
+                            <div class="stat-row">
+                                <span>Timeframe:</span>
+                                <span class="text-blue-400">1-12 months</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Avg Profit:</span>
+                                <span class="text-green-400">+24.7%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Daily Signals:</span>
+                                <span class="text-white">1-3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Trading Pairs Section -->
             <div class="bg-white/5 rounded-2xl p-8">
-                <h4 class="text-2xl font-bold mb-6 text-center">Supported Trading Pairs</h4>
+                <h4 class="text-2xl font-bold mb-6 text-center">Live Market Dashboard</h4>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                     <div class="trading-pair-card" data-trend="up">
                         <div class="flex items-center justify-between mb-2">
@@ -460,6 +615,124 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Advanced Analytics Dashboard -->
+            <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <!-- Risk Metrics -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h4 class="text-lg font-bold mb-2">Risk Management</h4>
+                        <div class="status-indicator green">Active</div>
+                    </div>
+                    <div class="risk-gauge">
+                        <div class="gauge-container">
+                            <div class="gauge-fill" style="transform: rotate(45deg);"></div>
+                            <div class="gauge-center">
+                                <span class="gauge-value">2.1%</span>
+                                <span class="gauge-label">Risk Level</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="risk-breakdown">
+                        <div class="risk-item">
+                            <span>Max Drawdown</span>
+                            <span class="text-yellow-400">-3.2%</span>
+                        </div>
+                        <div class="risk-item">
+                            <span>Sharpe Ratio</span>
+                            <span class="text-green-400">2.84</span>
+                        </div>
+                        <div class="risk-item">
+                            <span>Win Rate</span>
+                            <span class="text-green-400">94.2%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Allocation -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h4 class="text-lg font-bold mb-2">Portfolio Allocation</h4>
+                        <div class="status-indicator blue">Balanced</div>
+                    </div>
+                    <div class="allocation-chart">
+                        <div class="allocation-item">
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 45%; background: var(--green-trading);"></div>
+                            </div>
+                            <div class="allocation-label">
+                                <span>BTC</span>
+                                <span class="text-green-400">45%</span>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 25%; background: var(--blue-trading);"></div>
+                            </div>
+                            <div class="allocation-label">
+                                <span>ETH</span>
+                                <span class="text-blue-400">25%</span>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 15%; background: var(--yellow-trading);"></div>
+                            </div>
+                            <div class="allocation-label">
+                                <span>Altcoins</span>
+                                <span class="text-yellow-400">15%</span>
+                            </div>
+                        </div>
+                        <div class="allocation-item">
+                            <div class="allocation-bar">
+                                <div class="bar-fill" style="width: 15%; background: #9C27B0;"></div>
+                            </div>
+                            <div class="allocation-label">
+                                <span>Stables</span>
+                                <span class="text-purple-400">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Market Sentiment -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h4 class="text-lg font-bold mb-2">Market Sentiment</h4>
+                        <div class="status-indicator green">Bullish</div>
+                    </div>
+                    <div class="sentiment-meter">
+                        <div class="sentiment-scale">
+                            <div class="scale-marker red" style="left: 20%;"></div>
+                            <div class="scale-marker yellow" style="left: 50%;"></div>
+                            <div class="scale-marker green" style="left: 75%;"></div>
+                            <div class="sentiment-needle" style="left: 72%;"></div>
+                        </div>
+                        <div class="sentiment-labels">
+                            <span class="text-red-400">Fear</span>
+                            <span class="text-yellow-400">Neutral</span>
+                            <span class="text-green-400">Greed</span>
+                        </div>
+                    </div>
+                    <div class="sentiment-data">
+                        <div class="sentiment-item">
+                            <i class="fas fa-fire text-red-400"></i>
+                            <span>Fear & Greed Index</span>
+                            <span class="text-green-400">72</span>
+                        </div>
+                        <div class="sentiment-item">
+                            <i class="fas fa-chart-line text-blue-400"></i>
+                            <span>RSI</span>
+                            <span class="text-yellow-400">68.5</span>
+                        </div>
+                        <div class="sentiment-item">
+                            <i class="fas fa-volume-up text-purple-400"></i>
+                            <span>Volume</span>
+                            <span class="text-green-400">+15%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -467,10 +740,42 @@
     <section id="community" class="py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h3 class="text-4xl md:text-5xl font-bold mb-6">Join The Elite</h3>
-                <p class="text-xl text-white/70 max-w-3xl mx-auto">
-                    Connect with professional traders, share insights, and grow your portfolio together
+                <h3 class="text-4xl md:text-5xl font-bold mb-6">Join The Elite Trading Community</h3>
+                <p class="text-xl text-white/70 max-w-3xl mx-auto mb-8">
+                    Connect with professional traders, share insights, and grow your portfolio together in our exclusive trading environment
                 </p>
+                
+                <!-- Community Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="community-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-users text-blue-400"></i>
+                        </div>
+                        <div class="stat-number text-2xl font-bold">15,247</div>
+                        <div class="stat-label text-white/60">Active Members</div>
+                    </div>
+                    <div class="community-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-comments text-green-400"></i>
+                        </div>
+                        <div class="stat-number text-2xl font-bold">2,843</div>
+                        <div class="stat-label text-white/60">Daily Messages</div>
+                    </div>
+                    <div class="community-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-signal text-yellow-400"></i>
+                        </div>
+                        <div class="stat-number text-2xl font-bold">47</div>
+                        <div class="stat-label text-white/60">Signals Today</div>
+                    </div>
+                    <div class="community-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy text-purple-400"></i>
+                        </div>
+                        <div class="stat-number text-2xl font-bold">94.2%</div>
+                        <div class="stat-label text-white/60">Success Rate</div>
+                    </div>
+                </div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-12 items-center">

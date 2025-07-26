@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initInteractiveElements();
     initMobileMenu();
     initTradingAnimations();
+    initMiniCharts();
+    initAdvancedAnalytics();
     
 });
 
@@ -811,4 +813,319 @@ document.addEventListener('keydown', function(e) {
             });
         }
     }
+});
+
+// Initialize Mini Charts
+function initMiniCharts() {
+    const miniCharts = document.querySelectorAll('.mini-chart');
+    
+    miniCharts.forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        const type = canvas.getAttribute('data-type');
+        
+        // Set canvas size
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        drawMiniChart(ctx, type, canvas.width, canvas.height);
+    });
+}
+
+// Draw different chart types
+function drawMiniChart(ctx, type, width, height) {
+    ctx.clearRect(0, 0, width, height);
+    
+    const points = generateChartData(type);
+    
+    // Draw chart line
+    ctx.beginPath();
+    ctx.strokeStyle = type === 'scalping' ? '#FFD600' : 
+                     type === 'swing' ? '#00C853' : '#9C27B0';
+    ctx.lineWidth = 2;
+    
+    points.forEach((point, index) => {
+        const x = (index / (points.length - 1)) * width;
+        const y = height - (point * height);
+        
+        if (index === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+    });
+    
+    ctx.stroke();
+    
+    // Fill area under curve
+    ctx.lineTo(width, height);
+    ctx.lineTo(0, height);
+    ctx.closePath();
+    
+    const gradient = ctx.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, type === 'scalping' ? 'rgba(255, 214, 0, 0.3)' : 
+                            type === 'swing' ? 'rgba(0, 200, 83, 0.3)' : 'rgba(156, 39, 176, 0.3)');
+    gradient.addColorStop(1, 'transparent');
+    
+    ctx.fillStyle = gradient;
+    ctx.fill();
+    
+    // Add animation
+    animateChart(ctx, points, width, height, type);
+}
+
+// Generate realistic chart data
+function generateChartData(type) {
+    const points = [];
+    let value = 0.5;
+    const volatility = type === 'scalping' ? 0.05 : 
+                      type === 'swing' ? 0.1 : 0.15;
+    
+    for (let i = 0; i < 20; i++) {
+        value += (Math.random() - 0.45) * volatility;
+        value = Math.max(0.1, Math.min(0.9, value));
+        points.push(value);
+    }
+    
+    return points;
+}
+
+// Animate chart drawing
+function animateChart(ctx, points, width, height, type) {
+    let progress = 0;
+    
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        const visiblePoints = Math.floor(progress * points.length);
+        
+        if (visiblePoints > 1) {
+            ctx.beginPath();
+            ctx.strokeStyle = type === 'scalping' ? '#FFD600' : 
+                             type === 'swing' ? '#00C853' : '#9C27B0';
+            ctx.lineWidth = 2;
+            
+            for (let i = 0; i < visiblePoints; i++) {
+                const x = (i / (points.length - 1)) * width;
+                const y = height - (points[i] * height);
+                
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            
+            ctx.stroke();
+        }
+        
+        progress += 0.02;
+        
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            // Restart animation after delay
+            setTimeout(() => {
+                progress = 0;
+                animate();
+            }, 3000);
+        }
+    }
+    
+    animate();
+}
+
+// Initialize Advanced Analytics
+function initAdvancedAnalytics() {
+    // Animate allocation bars
+    ScrollTrigger.create({
+        trigger: '.allocation-chart',
+        start: 'top 80%',
+        onEnter: () => {
+            const bars = document.querySelectorAll('.bar-fill');
+            bars.forEach((bar, index) => {
+                gsap.fromTo(bar, 
+                    { width: '0%' },
+                    { 
+                        width: bar.style.width,
+                        duration: 1.5,
+                        delay: index * 0.2,
+                        ease: 'power3.out'
+                    }
+                );
+            });
+        }
+    });
+    
+    // Animate risk gauge
+    ScrollTrigger.create({
+        trigger: '.risk-gauge',
+        start: 'top 80%',
+        onEnter: () => {
+            const gaugeFill = document.querySelector('.gauge-fill::after');
+            gsap.fromTo('.gauge-fill', 
+                { rotation: -90 },
+                { 
+                    rotation: 45,
+                    duration: 2,
+                    ease: 'power3.out'
+                }
+            );
+        }
+    });
+    
+    // Animate sentiment needle
+    setInterval(() => {
+        const needle = document.querySelector('.sentiment-needle');
+        if (needle) {
+            const newPosition = 60 + (Math.random() * 20); // 60-80% range
+            gsap.to(needle, {
+                left: newPosition + '%',
+                duration: 2,
+                ease: 'power2.inOut'
+            });
+        }
+    }, 5000);
+    
+    // Update analytics data periodically
+    setInterval(() => {
+        updateAnalyticsData();
+    }, 8000);
+}
+
+// Update analytics data with realistic changes
+function updateAnalyticsData() {
+    // Update community stats
+    const communityStats = document.querySelectorAll('.community-stat .stat-number');
+    communityStats.forEach((stat, index) => {
+        const currentValue = parseInt(stat.textContent.replace(/,/g, ''));
+        let newValue;
+        
+        switch(index) {
+            case 0: // Active Members
+                newValue = currentValue + Math.floor(Math.random() * 10) - 3;
+                break;
+            case 1: // Daily Messages
+                newValue = currentValue + Math.floor(Math.random() * 50) - 20;
+                break;
+            case 2: // Signals Today
+                newValue = Math.max(40, currentValue + Math.floor(Math.random() * 6) - 2);
+                break;
+            case 3: // Success Rate (percentage)
+                newValue = Math.max(90, Math.min(98, currentValue + (Math.random() * 2 - 1)));
+                stat.textContent = newValue.toFixed(1) + '%';
+                return;
+        }
+        
+        // Format numbers with commas
+        if (newValue >= 1000) {
+            stat.textContent = newValue.toLocaleString();
+        } else {
+            stat.textContent = newValue.toString();
+        }
+        
+        // Flash animation
+        gsap.fromTo(stat, 
+            { scale: 1, color: '#ffffff' },
+            { 
+                scale: 1.1,
+                color: index === 3 ? '#00C853' : '#2196F3',
+                duration: 0.3,
+                yoyo: true,
+                repeat: 1,
+                ease: 'power2.inOut'
+            }
+        );
+    });
+    
+    // Update risk metrics
+    const riskItems = document.querySelectorAll('.risk-item span:last-child');
+    riskItems.forEach((item, index) => {
+        let newValue;
+        switch(index) {
+            case 0: // Max Drawdown
+                newValue = -(Math.random() * 2 + 2).toFixed(1);
+                item.textContent = newValue + '%';
+                item.className = 'text-yellow-400';
+                break;
+            case 1: // Sharpe Ratio
+                newValue = (Math.random() * 0.5 + 2.5).toFixed(2);
+                item.textContent = newValue;
+                item.className = 'text-green-400';
+                break;
+            case 2: // Win Rate
+                newValue = (Math.random() * 3 + 92).toFixed(1);
+                item.textContent = newValue + '%';
+                item.className = 'text-green-400';
+                break;
+        }
+        
+        gsap.fromTo(item, 
+            { scale: 1 },
+            { 
+                scale: 1.05,
+                duration: 0.3,
+                yoyo: true,
+                repeat: 1,
+                ease: 'power2.inOut'
+            }
+        );
+    });
+}
+
+// Enhanced candlestick animations
+function initCandlestickAnimations() {
+    const candlesticks = document.querySelectorAll('.candlestick');
+    
+    candlesticks.forEach((candlestick, index) => {
+        gsap.to(candlestick, {
+            y: -20,
+            duration: 3 + index * 0.5,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true,
+            delay: index * 0.3
+        });
+        
+        // Random color changes
+        setInterval(() => {
+            const isGreen = Math.random() > 0.4;
+            candlestick.className = candlestick.className.replace(/green|red/, isGreen ? 'green' : 'red');
+        }, 4000 + index * 1000);
+    });
+}
+
+// Initialize enhanced trading background
+function initTradingBackground() {
+    initCandlestickAnimations();
+    
+    // Animate market depth
+    const depthLevels = document.querySelectorAll('.depth-level');
+    depthLevels.forEach((level, index) => {
+        setInterval(() => {
+            const newWidth = Math.random() * 60 + 20;
+            gsap.to(level, {
+                width: newWidth + '%',
+                duration: 1,
+                ease: 'power2.inOut'
+            });
+        }, 2000 + index * 500);
+    });
+    
+    // Animate volume bars
+    const volumeBars = document.querySelectorAll('.volume-bar');
+    volumeBars.forEach((bar, index) => {
+        setInterval(() => {
+            const newHeight = Math.random() * 60 + 20;
+            gsap.to(bar, {
+                height: newHeight + '%',
+                duration: 0.8,
+                ease: 'power2.inOut'
+            });
+        }, 1500 + index * 300);
+    });
+}
+
+// Initialize all enhanced features
+document.addEventListener('DOMContentLoaded', function() {
+    initTradingBackground();
 });
