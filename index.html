@@ -276,6 +276,64 @@
                 </div>
             </div>
 
+            <!-- Signal Examples Section -->
+            <div class="mb-16">
+                <h4 class="text-2xl font-bold mb-8 text-center">Recent Signal Performance</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="signal-performance-card profit">
+                        <div class="signal-header">
+                            <span class="pair">BTC/USDT</span>
+                            <span class="signal-type long">LONG</span>
+                        </div>
+                        <div class="signal-details">
+                            <div class="entry-price">Entry: $45,230</div>
+                            <div class="exit-price">Exit: $47,150</div>
+                            <div class="profit-amount">+4.24%</div>
+                        </div>
+                        <div class="signal-time">2 hours ago</div>
+                    </div>
+                    
+                    <div class="signal-performance-card profit">
+                        <div class="signal-header">
+                            <span class="pair">ETH/USDT</span>
+                            <span class="signal-type long">LONG</span>
+                        </div>
+                        <div class="signal-details">
+                            <div class="entry-price">Entry: $2,340</div>
+                            <div class="exit-price">Exit: $2,425</div>
+                            <div class="profit-amount">+3.63%</div>
+                        </div>
+                        <div class="signal-time">4 hours ago</div>
+                    </div>
+                    
+                    <div class="signal-performance-card profit">
+                        <div class="signal-header">
+                            <span class="pair">SOL/USDT</span>
+                            <span class="signal-type long">LONG</span>
+                        </div>
+                        <div class="signal-details">
+                            <div class="entry-price">Entry: $98.50</div>
+                            <div class="exit-price">Exit: $104.20</div>
+                            <div class="profit-amount">+5.79%</div>
+                        </div>
+                        <div class="signal-time">6 hours ago</div>
+                    </div>
+                    
+                    <div class="signal-performance-card loss">
+                        <div class="signal-header">
+                            <span class="pair">ADA/USDT</span>
+                            <span class="signal-type short">SHORT</span>
+                        </div>
+                        <div class="signal-details">
+                            <div class="entry-price">Entry: $0.485</div>
+                            <div class="exit-price">Exit: $0.479</div>
+                            <div class="profit-amount">-1.24%</div>
+                        </div>
+                        <div class="signal-time">8 hours ago</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Trading Strategies Section -->
             <div class="bg-white/5 rounded-2xl p-8 mb-16">
                 <h4 class="text-2xl font-bold mb-6 text-center">Our Trading Strategies</h4>
@@ -503,56 +561,88 @@
                 <!-- Recent Signals History -->
                 <div class="trading-chart">
                     <div class="chart-header">
-                        <h4 class="text-xl font-semibold">Recent Signals</h4>
-                        <div class="text-white/60 text-sm">Last 24 Hours</div>
+                        <h4 class="text-xl font-semibold">🔥 Live Signals Feed</h4>
+                        <div class="text-green-400 text-sm">● Last 24 Hours</div>
                     </div>
-                    <div class="space-y-3">
-                        <div class="signal-item">
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                    <span class="font-semibold">ETH/USDT</span>
-                                    <span class="text-green-400 text-sm">LONG</span>
-                                </div>
-                                <div class="text-green-400 text-sm">+4.2%</div>
+                    <div class="signals-container">
+                        <div class="signal-feed-item profit">
+                            <div class="signal-status">
+                                <div class="status-dot profit"></div>
+                                <span class="status-text">CLOSED +4.2%</span>
                             </div>
-                            <div class="text-xs text-white/50 ml-5">2h ago • Entry: $2,340</div>
+                            <div class="signal-main">
+                                <div class="signal-pair">ETH/USDT</div>
+                                <div class="signal-direction long">LONG</div>
+                            </div>
+                            <div class="signal-details-mini">
+                                <div>Entry: $2,340</div>
+                                <div>Exit: $2,440</div>
+                                <div class="signal-time">2h ago</div>
+                            </div>
                         </div>
                         
-                        <div class="signal-item">
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                    <span class="font-semibold">BTC/USDT</span>
-                                    <span class="text-green-400 text-sm">LONG</span>
-                                </div>
-                                <div class="text-green-400 text-sm">+2.8%</div>
+                        <div class="signal-feed-item profit">
+                            <div class="signal-status">
+                                <div class="status-dot profit"></div>
+                                <span class="status-text">CLOSED +2.8%</span>
                             </div>
-                            <div class="text-xs text-white/50 ml-5">4h ago • Entry: $45,200</div>
+                            <div class="signal-main">
+                                <div class="signal-pair">BTC/USDT</div>
+                                <div class="signal-direction long">LONG</div>
+                            </div>
+                            <div class="signal-details-mini">
+                                <div>Entry: $45,200</div>
+                                <div>Exit: $46,465</div>
+                                <div class="signal-time">4h ago</div>
+                            </div>
                         </div>
                         
-                        <div class="signal-item">
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
-                                    <span class="font-semibold">ADA/USDT</span>
-                                    <span class="text-red-400 text-sm">SHORT</span>
-                                </div>
-                                <div class="text-red-400 text-sm">-1.2%</div>
+                        <div class="signal-feed-item loss">
+                            <div class="signal-status">
+                                <div class="status-dot loss"></div>
+                                <span class="status-text">CLOSED -1.2%</span>
                             </div>
-                            <div class="text-xs text-white/50 ml-5">6h ago • Entry: $0.485</div>
+                            <div class="signal-main">
+                                <div class="signal-pair">ADA/USDT</div>
+                                <div class="signal-direction short">SHORT</div>
+                            </div>
+                            <div class="signal-details-mini">
+                                <div>Entry: $0.485</div>
+                                <div>Exit: $0.479</div>
+                                <div class="signal-time">6h ago</div>
+                            </div>
                         </div>
                         
-                        <div class="signal-item">
-                            <div class="flex justify-between items-center">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                                    <span class="font-semibold">SOL/USDT</span>
-                                    <span class="text-green-400 text-sm">LONG</span>
-                                </div>
-                                <div class="text-green-400 text-sm">+6.1%</div>
+                        <div class="signal-feed-item profit">
+                            <div class="signal-status">
+                                <div class="status-dot profit"></div>
+                                <span class="status-text">CLOSED +6.1%</span>
                             </div>
-                            <div class="text-xs text-white/50 ml-5">8h ago • Entry: $98.50</div>
+                            <div class="signal-main">
+                                <div class="signal-pair">SOL/USDT</div>
+                                <div class="signal-direction long">LONG</div>
+                            </div>
+                            <div class="signal-details-mini">
+                                <div>Entry: $98.50</div>
+                                <div>Exit: $104.51</div>
+                                <div class="signal-time">8h ago</div>
+                            </div>
+                        </div>
+                        
+                        <div class="signal-feed-item active">
+                            <div class="signal-status">
+                                <div class="status-dot active"></div>
+                                <span class="status-text">ACTIVE</span>
+                            </div>
+                            <div class="signal-main">
+                                <div class="signal-pair">MATIC/USDT</div>
+                                <div class="signal-direction long">LONG</div>
+                            </div>
+                            <div class="signal-details-mini">
+                                <div>Entry: $1.125</div>
+                                <div>Target: $1.185</div>
+                                <div class="signal-time">30m ago</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -865,6 +955,96 @@
                         </div>
                         
                         <button class="platform-btn">Join Server</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Success Stories Section -->
+            <div class="mt-20">
+                <h4 class="text-3xl font-bold text-center mb-12">💰 Member Success Stories</h4>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">JD</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="name">John D.</div>
+                                <div class="location">New York, USA</div>
+                            </div>
+                            <div class="profit-badge">+127%</div>
+                        </div>
+                        <div class="testimonial-content">
+                            "White Rose signals helped me grow my portfolio by 127% in just 6 months. The accuracy is incredible!"
+                        </div>
+                        <div class="testimonial-stats">
+                            <div class="stat">
+                                <span class="stat-label">Joined:</span>
+                                <span class="stat-value">6 months ago</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Signals used:</span>
+                                <span class="stat-value">234</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">SM</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="name">Sarah M.</div>
+                                <div class="location">London, UK</div>
+                            </div>
+                            <div class="profit-badge">+89%</div>
+                        </div>
+                        <div class="testimonial-content">
+                            "Best trading community I've ever joined. The support and education are top-notch!"
+                        </div>
+                        <div class="testimonial-stats">
+                            <div class="stat">
+                                <span class="stat-label">Joined:</span>
+                                <span class="stat-value">4 months ago</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Signals used:</span>
+                                <span class="stat-value">156</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="avatar">
+                                <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-red-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold">MK</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-info">
+                                <div class="name">Mike K.</div>
+                                <div class="location">Tokyo, Japan</div>
+                            </div>
+                            <div class="profit-badge">+203%</div>
+                        </div>
+                        <div class="testimonial-content">
+                            "Changed my life completely. Now I'm trading full-time thanks to White Rose signals!"
+                        </div>
+                        <div class="testimonial-stats">
+                            <div class="stat">
+                                <span class="stat-label">Joined:</span>
+                                <span class="stat-value">8 months ago</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Signals used:</span>
+                                <span class="stat-value">412</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
