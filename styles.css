@@ -402,15 +402,110 @@ body {
     transform: translateY(-2px);
 }
 
-/* About Section */
-.about-item {
+/* Trading Pair Cards */
+.trading-pair-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.trading-pair-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mini Chart Bars */
+.mini-bar {
+    width: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .mini-bar {
+    transform: scaleY(1.1);
+}
+
+/* Chart Labels */
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+/* Signal Items */
+.signal-item {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.signal-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Team Cards */
+.team-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.team-avatar {
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-avatar {
+    transform: scale(1.05);
+}
+
+/* Tech Items */
+.tech-item {
     padding: 20px;
     text-align: center;
     transition: all 0.3s ease;
 }
 
+.tech-item:hover {
+    transform: translateY(-5px);
+}
+
+.tech-item:hover .w-12 {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* About Section */
+.about-item {
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .about-item:hover {
     transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Responsive Design */
@@ -548,6 +643,201 @@ body {
         transform: translateY(-100px) scale(1);
         opacity: 0;
     }
+}
+
+/* Navigation Active States */
+nav a.active {
+    color: #fff !important;
+    position: relative;
+}
+
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5));
+    border-radius: 1px;
+    animation: activeNavGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes activeNavGlow {
+    0% { opacity: 0.7; transform: scaleX(0.8); }
+    100% { opacity: 1; transform: scaleX(1); }
+}
+
+/* Mobile Navigation */
+.mobile-menu-btn {
+    padding: 10px;
+    cursor: pointer;
+    z-index: 60;
+}
+
+.hamburger {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-btn.active .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-content {
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+}
+
+.mobile-nav-link {
+    display: block;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 20px 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    border-bottom-color: transparent;
+}
+
+.mobile-nav-link:last-of-type {
+    border-bottom: none;
+}
+
+/* Enhanced Mini Bars Animation */
+.mini-bar {
+    animation: miniBarPulse 3s ease-in-out infinite;
+}
+
+.mini-bar:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.mini-bar:nth-child(even) {
+    animation-delay: 1s;
+}
+
+@keyframes miniBarPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; transform: scaleY(1.1); }
+}
+
+/* Trading Pair Cards Enhanced */
+.trading-pair-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.trading-pair-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.trading-pair-card:hover::before {
+    left: 100%;
+}
+
+/* Team Card Enhanced Animations */
+.team-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-card:hover::before {
+    opacity: 1;
+}
+
+/* Signal Item Enhancements */
+.signal-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.signal-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.signal-item:hover::before {
+    opacity: 1;
 }
 
 /* Custom Scrollbar */

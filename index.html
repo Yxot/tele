@@ -46,10 +46,32 @@
                     <a href="#about" class="text-white/80 hover:text-white transition-colors">About</a>
                 </div>
                 
-                <!-- CTA Button -->
-                <button class="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-white/90 transition-all transform hover:scale-105">
+                <!-- Desktop CTA Button -->
+                <button class="hidden md:block bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-white/90 transition-all transform hover:scale-105">
                     Join Now
                 </button>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden mobile-menu-btn">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav md:hidden">
+                <div class="mobile-nav-content">
+                    <a href="#signals" class="mobile-nav-link">Signals</a>
+                    <a href="#performance" class="mobile-nav-link">Performance</a>
+                    <a href="#community" class="mobile-nav-link">Community</a>
+                    <a href="#about" class="mobile-nav-link">About</a>
+                    <button class="bg-white text-black px-6 py-3 rounded-full font-semibold w-full mt-4">
+                        Join Now
+                    </button>
+                </div>
             </div>
         </nav>
     </header>
@@ -129,13 +151,27 @@
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- Signal Types Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line text-2xl"></i>
                     </div>
                     <h4 class="text-xl font-semibold mb-4">Real-Time Analysis</h4>
                     <p class="text-white/70">Advanced AI-powered market analysis providing instant insights across all major trading pairs.</p>
+                    
+                    <!-- Mini Chart Visualization -->
+                    <div class="mt-6 p-4 bg-white/5 rounded-lg">
+                        <div class="flex items-end justify-between h-16 gap-1">
+                            <div class="bg-green-500 opacity-70 rounded-sm mini-bar" style="height: 40%;"></div>
+                            <div class="bg-green-500 opacity-70 rounded-sm mini-bar" style="height: 60%;"></div>
+                            <div class="bg-red-500 opacity-70 rounded-sm mini-bar" style="height: 30%;"></div>
+                            <div class="bg-green-500 opacity-70 rounded-sm mini-bar" style="height: 80%;"></div>
+                            <div class="bg-green-500 opacity-70 rounded-sm mini-bar" style="height: 70%;"></div>
+                            <div class="bg-green-500 opacity-70 rounded-sm mini-bar" style="height: 90%;"></div>
+                        </div>
+                        <div class="text-xs text-white/50 mt-2">Live Market Data</div>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
@@ -144,6 +180,19 @@
                     </div>
                     <h4 class="text-xl font-semibold mb-4">Precision Signals</h4>
                     <p class="text-white/70">Highly accurate entry and exit points with detailed risk management strategies.</p>
+                    
+                    <!-- Signal Example -->
+                    <div class="mt-6 p-4 bg-white/5 rounded-lg">
+                        <div class="text-xs text-white/60 mb-2">LATEST SIGNAL</div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold">BTC/USDT</span>
+                            <span class="text-green-400 text-sm">LONG</span>
+                        </div>
+                        <div class="text-xs text-white/50">
+                            Entry: $45,230 | TP: $47,500 | SL: $43,800
+                        </div>
+                        <div class="text-xs text-green-400 mt-1">+5.2% Profit</div>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
@@ -152,6 +201,55 @@
                     </div>
                     <h4 class="text-xl font-semibold mb-4">Risk Management</h4>
                     <p class="text-white/70">Comprehensive risk assessment and portfolio protection strategies for every trade.</p>
+                    
+                    <!-- Risk Meter -->
+                    <div class="mt-6 p-4 bg-white/5 rounded-lg">
+                        <div class="text-xs text-white/60 mb-2">RISK LEVEL</div>
+                        <div class="flex items-center gap-2">
+                            <div class="flex-1 bg-white/10 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-500 to-yellow-500 h-2 rounded-full" style="width: 35%;"></div>
+                            </div>
+                            <span class="text-xs text-green-400">LOW</span>
+                        </div>
+                        <div class="text-xs text-white/50 mt-2">Portfolio Exposure: 2.5%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trading Pairs Section -->
+            <div class="bg-white/5 rounded-2xl p-8">
+                <h4 class="text-2xl font-bold mb-6 text-center">Supported Trading Pairs</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div class="trading-pair-card">
+                        <div class="text-lg font-bold">BTC</div>
+                        <div class="text-sm text-white/60">Bitcoin</div>
+                        <div class="text-green-400 text-sm">+2.4%</div>
+                    </div>
+                    <div class="trading-pair-card">
+                        <div class="text-lg font-bold">ETH</div>
+                        <div class="text-sm text-white/60">Ethereum</div>
+                        <div class="text-green-400 text-sm">+1.8%</div>
+                    </div>
+                    <div class="trading-pair-card">
+                        <div class="text-lg font-bold">BNB</div>
+                        <div class="text-sm text-white/60">Binance</div>
+                        <div class="text-red-400 text-sm">-0.5%</div>
+                    </div>
+                    <div class="trading-pair-card">
+                        <div class="text-lg font-bold">ADA</div>
+                        <div class="text-sm text-white/60">Cardano</div>
+                        <div class="text-green-400 text-sm">+3.2%</div>
+                    </div>
+                    <div class="trading-pair-card">
+                        <div class="text-lg font-bold">SOL</div>
+                        <div class="text-sm text-white/60">Solana</div>
+                        <div class="text-green-400 text-sm">+5.1%</div>
+                    </div>
+                    <div class="trading-pair-card">
+                        <div class="text-lg font-bold">DOT</div>
+                        <div class="text-sm text-white/60">Polkadot</div>
+                        <div class="text-green-400 text-sm">+1.2%</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,7 +288,7 @@
             </div>
             
             <!-- Trading Chart Visualization -->
-            <div class="mt-16">
+            <div class="mt-16 grid md:grid-cols-2 gap-8">
                 <div class="trading-chart">
                     <div class="chart-header">
                         <h4 class="text-xl font-semibold">Weekly Performance Overview</h4>
@@ -206,6 +304,72 @@
                             <div class="chart-bar" data-height="70"></div>
                             <div class="chart-bar" data-height="85"></div>
                             <div class="chart-bar" data-height="95"></div>
+                        </div>
+                        <div class="chart-labels">
+                            <span class="text-xs text-white/50">Mon</span>
+                            <span class="text-xs text-white/50">Tue</span>
+                            <span class="text-xs text-white/50">Wed</span>
+                            <span class="text-xs text-white/50">Thu</span>
+                            <span class="text-xs text-white/50">Fri</span>
+                            <span class="text-xs text-white/50">Sat</span>
+                            <span class="text-xs text-white/50">Sun</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Signals History -->
+                <div class="trading-chart">
+                    <div class="chart-header">
+                        <h4 class="text-xl font-semibold">Recent Signals</h4>
+                        <div class="text-white/60 text-sm">Last 24 Hours</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="signal-item">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <span class="font-semibold">ETH/USDT</span>
+                                    <span class="text-green-400 text-sm">LONG</span>
+                                </div>
+                                <div class="text-green-400 text-sm">+4.2%</div>
+                            </div>
+                            <div class="text-xs text-white/50 ml-5">2h ago • Entry: $2,340</div>
+                        </div>
+                        
+                        <div class="signal-item">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <span class="font-semibold">BTC/USDT</span>
+                                    <span class="text-green-400 text-sm">LONG</span>
+                                </div>
+                                <div class="text-green-400 text-sm">+2.8%</div>
+                            </div>
+                            <div class="text-xs text-white/50 ml-5">4h ago • Entry: $45,200</div>
+                        </div>
+                        
+                        <div class="signal-item">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                                    <span class="font-semibold">ADA/USDT</span>
+                                    <span class="text-red-400 text-sm">SHORT</span>
+                                </div>
+                                <div class="text-red-400 text-sm">-1.2%</div>
+                            </div>
+                            <div class="text-xs text-white/50 ml-5">6h ago • Entry: $0.485</div>
+                        </div>
+                        
+                        <div class="signal-item">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                    <span class="font-semibold">SOL/USDT</span>
+                                    <span class="text-green-400 text-sm">LONG</span>
+                                </div>
+                                <div class="text-green-400 text-sm">+6.1%</div>
+                            </div>
+                            <div class="text-xs text-white/50 ml-5">8h ago • Entry: $98.50</div>
                         </div>
                     </div>
                 </div>
@@ -259,7 +423,36 @@
                         </div>
                         <h4 class="text-xl font-semibold mb-2">Telegram VIP</h4>
                         <p class="text-white/70 mb-4">Premium signals channel with 24/7 support</p>
-                        <div class="text-sm text-white/60 mb-4">12,847 members</div>
+                        
+                        <!-- Member Activity -->
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between text-sm mb-2">
+                                <span class="text-white/60">12,847 members</span>
+                                <span class="text-green-400">● 1,284 online</span>
+                            </div>
+                            <div class="flex items-center gap-1 mb-2">
+                                <div class="flex -space-x-2">
+                                    <div class="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full border-2 border-black"></div>
+                                    <div class="w-6 h-6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full border-2 border-black"></div>
+                                    <div class="w-6 h-6 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full border-2 border-black"></div>
+                                    <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-2 border-black"></div>
+                                </div>
+                                <span class="text-xs text-white/50 ml-2">+200 joined today</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Activity -->
+                        <div class="text-xs text-white/50 mb-4">
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="w-1 h-1 bg-green-400 rounded-full"></div>
+                                <span>Signal posted 5 min ago</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
+                                <span>Market analysis updated</span>
+                            </div>
+                        </div>
+                        
                         <button class="platform-btn">Join Channel</button>
                     </div>
                     
@@ -269,7 +462,45 @@
                         </div>
                         <h4 class="text-xl font-semibold mb-2">Discord Elite</h4>
                         <p class="text-white/70 mb-4">Interactive community with voice chats and Q&A</p>
-                        <div class="text-sm text-white/60 mb-4">8,235 members</div>
+                        
+                        <!-- Voice Activity -->
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between text-sm mb-2">
+                                <span class="text-white/60">8,235 members</span>
+                                <span class="text-purple-400">● 156 in voice</span>
+                            </div>
+                            
+                            <!-- Voice Channels -->
+                            <div class="space-y-1 text-xs">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fas fa-volume-up text-purple-400"></i>
+                                        <span class="text-white/70">Trading Discussion</span>
+                                    </div>
+                                    <span class="text-white/50">23/50</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fas fa-volume-up text-purple-400"></i>
+                                        <span class="text-white/70">Market Analysis</span>
+                                    </div>
+                                    <span class="text-white/50">12/25</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Live Events -->
+                        <div class="text-xs text-white/50 mb-4">
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+                                <span>Live Q&A session ongoing</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-1 h-1 bg-green-400 rounded-full"></div>
+                                <span>Next webinar: Tomorrow 3PM</span>
+                            </div>
+                        </div>
+                        
                         <button class="platform-btn">Join Server</button>
                     </div>
                 </div>
@@ -280,15 +511,69 @@
     <!-- About Section -->
     <section id="about" class="py-20 bg-white/5">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h3 class="text-4xl md:text-5xl font-bold mb-8">About White Rose</h3>
-                <p class="text-xl text-white/70 mb-8 leading-relaxed">
-                    Founded by a team of quantitative analysts and professional traders, White Rose Future Signals 
-                    combines cutting-edge technology with decades of market experience to deliver unparalleled 
-                    trading intelligence.
-                </p>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h3 class="text-4xl md:text-5xl font-bold mb-8">About White Rose</h3>
+                    <p class="text-xl text-white/70 mb-8 leading-relaxed max-w-4xl mx-auto">
+                        Founded by a team of quantitative analysts and professional traders, White Rose Future Signals 
+                        combines cutting-edge technology with decades of market experience to deliver unparalleled 
+                        trading intelligence.
+                    </p>
+                </div>
                 
-                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <!-- Team Section -->
+                <div class="mb-16">
+                    <h4 class="text-2xl font-bold text-center mb-8">Meet Our Expert Team</h4>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                            </div>
+                            <h5 class="text-lg font-semibold mb-2">Alexander Chen</h5>
+                            <p class="text-white/60 text-sm mb-3">Chief Trading Strategist</p>
+                            <p class="text-white/70 text-sm">15+ years in quantitative analysis with Goldman Sachs and JP Morgan.</p>
+                            <div class="flex justify-center gap-3 mt-4">
+                                <i class="fab fa-linkedin text-white/50 hover:text-white cursor-pointer"></i>
+                                <i class="fab fa-twitter text-white/50 hover:text-white cursor-pointer"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                            </div>
+                            <h5 class="text-lg font-semibold mb-2">Sarah Mitchell</h5>
+                            <p class="text-white/60 text-sm mb-3">Head of Risk Management</p>
+                            <p class="text-white/70 text-sm">Former hedge fund manager with expertise in portfolio optimization and risk assessment.</p>
+                            <div class="flex justify-center gap-3 mt-4">
+                                <i class="fab fa-linkedin text-white/50 hover:text-white cursor-pointer"></i>
+                                <i class="fab fa-twitter text-white/50 hover:text-white cursor-pointer"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                            </div>
+                            <h5 class="text-lg font-semibold mb-2">Marcus Rodriguez</h5>
+                            <p class="text-white/60 text-sm mb-3">AI/ML Engineering Lead</p>
+                            <p class="text-white/70 text-sm">PhD in Machine Learning, specialized in algorithmic trading systems and predictive models.</p>
+                            <div class="flex justify-center gap-3 mt-4">
+                                <i class="fab fa-linkedin text-white/50 hover:text-white cursor-pointer"></i>
+                                <i class="fab fa-github text-white/50 hover:text-white cursor-pointer"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Company Stats -->
+                <div class="grid md:grid-cols-4 gap-8 mb-16">
                     <div class="about-item">
                         <div class="text-3xl font-bold text-white mb-2">5+</div>
                         <div class="text-white/70">Years of Experience</div>
@@ -300,6 +585,56 @@
                     <div class="about-item">
                         <div class="text-3xl font-bold text-white mb-2">15K+</div>
                         <div class="text-white/70">Active Members</div>
+                    </div>
+                    <div class="about-item">
+                        <div class="text-3xl font-bold text-white mb-2">24/7</div>
+                        <div class="text-white/70">Support Available</div>
+                    </div>
+                </div>
+                
+                <!-- Technology Stack -->
+                <div class="bg-white/5 rounded-2xl p-8">
+                    <h4 class="text-2xl font-bold text-center mb-8">Our Technology Stack</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="tech-item">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-brain text-xl text-white"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold mb-1">AI/ML</div>
+                                <div class="text-xs text-white/60">Neural Networks</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-database text-xl text-white"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold mb-1">Big Data</div>
+                                <div class="text-xs text-white/60">Real-time Processing</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-shield-alt text-xl text-white"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold mb-1">Security</div>
+                                <div class="text-xs text-white/60">Enterprise Grade</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-cloud text-xl text-white"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-semibold mb-1">Cloud</div>
+                                <div class="text-xs text-white/60">99.9% Uptime</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

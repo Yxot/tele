@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initChartAnimations();
     initParticleSystem();
     initSmoothScrolling();
+    initScrollSpy();
     initNavigationEffects();
     initInteractiveElements();
     
@@ -150,6 +151,66 @@ function initScrollAnimations() {
         stagger: 0.1,
         ease: 'power3.out'
     });
+    
+    // Team cards animation
+    gsap.from('.team-card', {
+        scrollTrigger: {
+            trigger: '.team-card',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+    
+    // Tech items animation
+    gsap.from('.tech-item', {
+        scrollTrigger: {
+            trigger: '.tech-item',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+        },
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'back.out(1.7)'
+    });
+    
+    // Trading pairs animation
+    gsap.from('.trading-pair-card', {
+        scrollTrigger: {
+            trigger: '.trading-pair-card',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out'
+    });
+    
+    // Signal items animation
+    gsap.from('.signal-item', {
+        scrollTrigger: {
+            trigger: '.signal-item',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+        },
+        x: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out'
+    });
 }
 
 // Counter animations
@@ -260,6 +321,9 @@ function initSmoothScrolling() {
             const target = document.querySelector(this.getAttribute('href'));
             
             if (target) {
+                // Update active navigation state
+                updateActiveNavigation(this.getAttribute('href'));
+                
                 gsap.to(window, {
                     duration: 1.5,
                     scrollTo: {
@@ -274,6 +338,7 @@ function initSmoothScrolling() {
     
     // Scroll indicator click
     document.querySelector('.scroll-indicator')?.addEventListener('click', function() {
+        updateActiveNavigation('#signals');
         gsap.to(window, {
             duration: 1.5,
             scrollTo: {
@@ -282,6 +347,43 @@ function initSmoothScrolling() {
             },
             ease: 'power3.inOut'
         });
+    });
+}
+
+// Update active navigation state
+function updateActiveNavigation(activeHref) {
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    const activeLink = document.querySelector(`nav a[href="${activeHref}"]`);
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
+}
+
+// Track scroll position for active navigation
+function initScrollSpy() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeHref = `#${entry.target.id}`;
+                updateActiveNavigation(activeHref);
+            }
+        });
+    }, observerOptions);
+    
+    sections.forEach(section => {
+        observer.observe(section);
     });
 }
 
